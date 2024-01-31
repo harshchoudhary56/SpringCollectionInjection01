@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           https://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           https://www.springframework.org/schema/context/spring-context.xsd">
+                         
+     <bean id="marksInfo" class="in.ineuron.comp.MarksInfo">
+     	<property name="marks">
+     		<array>
+     			<value>1</value>
+     			<value>2</value>
+     			<value>3</value>
+     			<value>4</value>
+     			<value>5</value>
+     			<value>6</value>
+     		</array>
+     	</property>
+     </bean>
+	  
+	 <bean id="date1" class="java.util.Date"/>
+	 <bean id="date2" class="java.util.Date">
+	 	<property name="year" value="93"/>
+	 	<property name="month" value="0"/>
+	 	<property name="date" value="3"/>
+	 </bean>
+	 
+	<bean id="college" class="in.ineuron.comp.College">
+		<property name="studentNames">
+			<list>
+				<value>Harsh</value>
+				<value>Naresh</value>
+				<value>Sanjeev</value>
+				<value>Rajesh</value>
+			</list>
+		</property>
+		
+		<property name="dateList">
+			<list>
+				<ref bean="date1"/>
+				<ref bean="date2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="date3" class="java.util.Date"/>
+	 <bean id="date4" class="java.util.Date">
+	 	<property name="year" value="93"/>
+	 	<property name="month" value="0"/>
+	 	<property name="date" value="3"/>
+	 </bean>
+	 
+	<bean id="contact" class="in.ineuron.comp.ContactsInfo">
+		<property name="phoneNumber">
+			<set value-type="java.lang.Long">
+				<value>9999999999</value>
+				<value>8888888888</value>
+				<value>7777777777</value>
+			</set>
+		</property>
+		<property name="date">
+			<set>
+				<ref bean="date3"/>
+				<ref bean="date4"/>
+			</set>
+		</property>
+	</bean>
+	
+	<bean id="universityInfo" class="in.ineuron.comp.UniversityInfo">
+		<property name="facultyDetails">
+			<map key-type="java.lang.Integer" value-type="java.lang.String">
+				<entry>
+					<key>
+						<value>1</value>
+					</key>
+					<value>Harsh</value>
+				</entry>
+				<entry key="2" value="Dhruv"/>
+			</map>
+		</property>
+		<property name="datesInfo">
+			<map key-type="java.lang.String" value-type="java.util.Date">
+				<entry>
+					<key>
+						<value>Harsh</value>
+					</key>
+					<ref bean="date1"/>
+				</entry>
+			</map>
+		</property>
+		<property name="iplInfo">
+		<props>
+			<prop key="RCB">Virat</prop>
+			<prop key="MI">Rohit</prop>
+			<prop key="CSK">Dhoni</prop>
+		</props>
+	</property>
+	</bean>
+</beans>
